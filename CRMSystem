@@ -1,0 +1,77 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class CRMSystem {
+    private Organizer organizer;
+
+    public CRMSystem(Organizer organizer) {
+        this.organizer = organizer;
+    }
+
+    public void handleCRMScenario(Scanner scanner) {
+        System.out.println("1. View Customers");
+        System.out.println("2. Add Customer");
+        System.out.println("3. Customer RSVP");
+        System.out.println("Enter your choice:");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline character
+
+        switch (choice) {
+            case 1:
+                // Get all customers
+                ArrayList<Customer> customers = organizer.getAllCustomers();
+                System.out.println("Customers to contact:");
+                for (int i = 0; i < customers.size(); i++) {
+                    Customer customer = customers.get(i);
+                    System.out.println((i + 1) + ". " + customer.getAttendeeName() + ", Last Contacted: " + customer.getLastContacted());
+                    HashSet<String> attendedEvents = customer.getAttendedEvents();
+                    if (attendedEvents.isEmpty()) {
+                        System.out.println("   Has not RSVPed to any events.");
+                    } else {
+                        System.out.println("   RSVPed to: " + attendedEvents);
+                    }
+                }
+
+                System.out.println("Choose a customer to contact. Enter the number:");
+                int customerIndex = scanner.nextInt() - 1;
+                scanner.nextLine(); // Consume newline character
+
+                Customer customer = customers.get(customerIndex);
+                System.out.println("You are now contacting " + customer.getAttendeeName() + ". Phone number: " + customer.getPhoneNumber());
+
+                System.out.println("Which event are you contacting them about? Enter the event name:");
+                String eventName = scanner.nextLine();
+
+                System.out.println("Did the customer confirm their attendance? 1. Yes, 2. No");
+                int confirmation = scanner.nextInt();
+                scanner.nextLine(); // Consume newline character
+
+                if (confirmation == 1) {
+                    organizer.RSVP(customer, eventName);
+                    System.out.println("Great! The customer confirmed their attendance.");
+                } else {
+                    System.out.println("The customer did not confirm their attendance. They should be contacted again soon.");
+                }
+                
+                // Update the last contacted date to "2024-04-25" (as a string)
+                String lastContacted = "2024-04-25";
+                customer.setLastContacted(lastContacted);
+                break;
+       
+            case 2:
+                Customer.addCustomer(organizer, scanner);
+                break;
+            case 3:
+            	EventManagementSystem.RSVPToEvent(organizer,scanner);
+            	break;
+            	
+            default:
+                System.out.println("Invalid choice. Please try again.");
+        }
+            
+    }
+    
+    
+    
+}
