@@ -14,7 +14,7 @@ public class Organizer {
         this.attendeeRSVPs = new HashMap<>();
     }
 
-    public void createEvent(String name, String date, ArrayList<String> speakers) {
+    public void createEvent(String name, String date, String[] speakers) {
       
             events.add(new Event(name, date));
         
