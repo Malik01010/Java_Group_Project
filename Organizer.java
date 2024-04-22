@@ -6,11 +6,13 @@ public class Organizer {
     private ArrayList<Event> events;
     private HashMap<String, HashSet<String>> attendeeRSVPs;
     private HashMap<String, ArrayList<Customer>> eventCustomers;
+    private ArrayList<Customer> allCustomers;
 
     public Organizer(String name) {
         this.events = new ArrayList<>();
         this.attendeeRSVPs = new HashMap<>();
         this.eventCustomers = new HashMap<>();
+        this.allCustomers = new ArrayList<>();
     }
 
     public void createEvent(String name, String date, ArrayList<String> speakers) {
@@ -34,10 +36,13 @@ public class Organizer {
     public ArrayList<Event> getEvents() {
         return events;
     }
-
-    public ArrayList<Customer> getCustomersForEvent(String eventName) {
-        return eventCustomers.get(eventName);
+    
+    public void addCustomer(Customer customer) {
+        allCustomers.add(customer);
     }
 
-    // Implement additional methods as needed
+    public ArrayList<Customer> getAllCustomers() {
+        return allCustomers;
+    }
+
 }
