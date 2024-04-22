@@ -1,0 +1,46 @@
+import java.util.List;
+import java.util.Scanner;
+
+public class CRMSystem {
+    private Organizer organizer;
+
+    public CRMSystem(Organizer organizer) {
+        this.organizer = organizer;
+    }
+
+    public void handleCRMScenario(Scanner scanner) {
+        List<Event> events = organizer.getEvents();
+        for (int i = 0; i < events.size(); i++) {
+            System.out.println((i + 1) + ". " + events.get(i).getEventName());
+        }
+
+        System.out.println("Which event would you like to see Customer Relations for? Enter the number:");
+        int eventIndex = scanner.nextInt() - 1;
+        scanner.nextLine(); // Consume newline character
+
+        Event event = events.get(eventIndex);
+        List<Customer> customers = organizer.getCustomersForEvent(event.getEventName());
+
+        for (int i = 0; i < customers.size(); i++) {
+            Customer customer = customers.get(i);
+            System.out.println((i + 1) + ". " + customer.getAttendeeName() + ", Last Contacted: " + customer.getLastContacted());
+        }
+
+        System.out.println("Choose a customer to contact. Enter the number:");
+        int customerIndex = scanner.nextInt() - 1;
+        scanner.nextLine(); // Consume newline character
+
+        Customer customer = customers.get(customerIndex);
+        System.out.println("You are now contacting " + customer.getAttendeeName() + ". Phone number: " + customer.getPhoneNumber());
+
+        System.out.println("Did the customer confirm their attendance? 1. Yes, 2. No");
+        int confirmation = scanner.nextInt();
+        scanner.nextLine(); // Consume newline character
+
+        if (confirmation == 1) {
+            System.out.println("Great! The customer confirmed their attendance.");
+        } else {
+            System.out.println("The customer did not confirm their attendance. They should be contacted again soon.");
+        }
+    }
+}
