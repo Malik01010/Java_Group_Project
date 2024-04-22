@@ -8,14 +8,15 @@ public class Attendee {
         this.attendeeName = name;
         this.attendedEvents = new HashSet<>();
     }
-
+    
+    public String getName() {
+        return attendeeName;
+    }
+    
     public void RSVP(String eventName) {
         attendedEvents.add(eventName);
     }
 
-    public void submitFeedback(String eventName, String feedback) {
-        // Submit feedback for the event
-    }
 
     public String getAttendeeName() {
         return attendeeName;
@@ -24,7 +25,4 @@ public class Attendee {
     public HashSet<String> getAttendedEvents() {
         return attendedEvents;
     }
-}
-
-
 }
