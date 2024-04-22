@@ -1,12 +1,14 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Event {
     private String eventName;
     private String eventDate;
-    private String eventType;
+    
 
-    public Event(String name, String date, String type) {
+    public Event(String name, String date) {
         this.eventName = name;
         this.eventDate = date;
-        this.eventType = type;
     }
 
     public String getEventName() {
@@ -17,12 +19,29 @@ public class Event {
         return eventDate;
     }
 
-    public String getEventType() {
-        return eventType;
-    }
 
     @Override
     public String toString() {
-        return "Event Name: " + eventName + ", Date: " + eventDate + ", Type: " + eventType;
+        return "Event Name: " + eventName + ", Date: " + eventDate;
+    }
+    
+    public static void createEvent(Organizer organizer, Scanner scanner) {
+        System.out.println("Enter event name:");
+        String eventName = scanner.nextLine();
+        System.out.println("Enter event date:");
+        String eventDate = scanner.nextLine();
+      
+  
+        ArrayList<String> speakers = new ArrayList<>();
+        System.out.println("Enter number of speakers:");
+        int numSpeakers = scanner.nextInt();
+        scanner.nextLine(); // Consume newline character
+        for (int i = 0; i < numSpeakers; i++) {
+            System.out.println("Enter speaker " + (i + 1) + " name:");
+            speakers.add(scanner.nextLine());
+        }
+
+        organizer.createEvent(eventName, eventDate, speakers);
+        System.out.println("Event created successfully!");
     }
 }
