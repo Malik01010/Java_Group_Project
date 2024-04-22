@@ -47,7 +47,7 @@ public class EventManagementSystem {
                     break;
                 case 2:
                     // Different logic for option 2
-                    System.out.println("Different logic for option 2");
+                    System.out.println("Customer Relations");
                     // Place your alternative logic here
                     break;
                 case 3:
