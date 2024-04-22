@@ -46,8 +46,9 @@ public class EventManagementSystem {
                     }
                     break;
                 case 2:
-                    // Different logic for option 2
-                    System.out.println("Customer Relations");
+                    // Return the list of customers for a given event
+                	CRMSystem crmSystem = new CRMSystem(organizer);
+                    crmSystem.handleCRMScenario(scanner);
                     // Place your alternative logic here
                     break;
                 case 3:
