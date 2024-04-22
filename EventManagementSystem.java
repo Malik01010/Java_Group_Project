@@ -64,13 +64,13 @@ public class EventManagementSystem {
         int maxAttendees = scanner.nextInt();
         scanner.nextLine(); // Consume newline character
 
-        ArrayList<String> speakers = new ArrayList<>();
         System.out.println("Enter number of speakers:");
         int numSpeakers = scanner.nextInt();
-        scanner.nextLine(); // Consume newline character
+        scanner.nextLine();// Consume newline character
+        String[] speakers = new String[numSpeakers];
         for (int i = 0; i < numSpeakers; i++) {
-            System.out.println("Enter speaker " + (i + 1) + " name:");
-            speakers.add(scanner.nextLine());
+            System.out.println("Enter speaker " + (i+1) + " name:");
+            speakers[i]=(scanner.nextLine());
         }
 
         organizer.createEvent(eventName, eventDate, "Conference", maxAttendees, speakers);
@@ -120,17 +120,19 @@ public class EventManagementSystem {
     }
 
     private static void preLoadData(Organizer organizer) {
-        ArrayList<String> speakers1 = new ArrayList<>();
-        speakers1.add("Speaker 1");
-        speakers1.add("Speaker 2");
+        String[] speakers1 = new String[2];
+        for(int i=0; i > 1; i++){
+        speakers1[i]= ("Speaker" + i);
+        }
+        
+        String[] speakers2 = new String[2];
+        for(int j=0; j > 1; j++) {
+        	speakers2[j] = ("Speaker" + j);
+        }
+        
+        organizer.createEvent("Introduction to Java", "01/09/2024", "Conference", 100, speakers1);
+        organizer.createEvent("Java Final Project", "04/25/2024", "Conference", 150, speakers2 );
 
-        ArrayList<String> speakers2 = new ArrayList<>();
-        speakers2.add("Speaker A");
-        speakers2.add("Speaker B");
-
-        organizer.createEvent("Conference 1", "2024-05-01", "Conference", 100, speakers1);
-        organizer.createEvent("Conference 2", "2024-05-15", "Conference", 150, speakers2);
-
-        // Implement logic to preload additional data if necessary
+        
     }
 }
