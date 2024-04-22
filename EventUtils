@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EventUtils {
-    private static int eventCount = 2;
+
     public static void printMainMenu() {
     	
   	  System.out.println("Main Menu");
@@ -27,7 +27,6 @@ public class EventUtils {
         for (Event event : organizer.getEvents()) {
             System.out.println(event);
         }
-        System.out.println("Number of events: " + eventCount);
     }
     
     public static void createEvent(Organizer organizer, Scanner scanner) {
@@ -37,15 +36,15 @@ public class EventUtils {
         String eventDate = scanner.nextLine();
       
   
+        ArrayList<String> speakers = new ArrayList<>();
         System.out.println("Enter number of speakers:");
         int numSpeakers = scanner.nextInt();
-        scanner.nextLine();// Consume newline character
-        String[] speakers = new String[numSpeakers];
+        scanner.nextLine(); // Consume newline character
         for (int i = 0; i < numSpeakers; i++) {
-            System.out.println("Enter speaker " + (i+1) + " name:");
-            speakers[i]=(scanner.nextLine());
+            System.out.println("Enter speaker " + (i + 1) + " name:");
+            speakers.add(scanner.nextLine());
         }
-        eventCount++;
+
         organizer.createEvent(eventName, eventDate, speakers);
         System.out.println("Event created successfully!");
     }
