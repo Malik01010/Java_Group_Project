@@ -1,0 +1,36 @@
+import java.util.Date;
+
+public class Customer extends Attendee {
+    private Date lastContacted;
+    private String industry;
+    private String workplace;
+    private String phoneNumber;
+
+    public Customer(String name, String industry, String workplace, String phoneNumber) {
+        super(name);
+        this.lastContacted = new Date();
+        this.industry = industry;
+        this.workplace = workplace;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Date getLastContacted() {
+        return lastContacted;
+    }
+
+    public void updateLastContacted() {
+        this.lastContacted = new Date();
+    }
+
+    public String getIndustry() {
+        return industry;
+    }
+
+    public String getWorkplace() {
+        return workplace;
+    }
+    
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+}
