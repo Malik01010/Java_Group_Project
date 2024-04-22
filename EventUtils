@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class EventUtils {
+
+    public static void printMainMenu() {
+    	
+  	  System.out.println("Main Menu");
+        System.out.println("1. Event Management");
+        System.out.println("2. Different Logic");
+        System.out.println("3. Exit");
+  	
+  }
+    
+    public static void printMenu() {
+        System.out.println("\n--- Event Management System Menu ---");
+        System.out.println("1. Create Event");
+        System.out.println("2. RSVP to Event");
+        System.out.println("3. View Events");
+        System.out.println("4. View Attendee Details");
+        System.out.println("5. Exit");
+        System.out.print("Enter your choice: ");
+    }
+    
+    public static void viewEvents(Organizer organizer) {
+        System.out.println("--- Events ---");
+        for (Event event : organizer.getEvents()) {
+            System.out.println(event);
+        }
+    }
+    
+    public static void createEvent(Organizer organizer, Scanner scanner) {
+        System.out.println("Enter event name:");
+        String eventName = scanner.nextLine();
+        System.out.println("Enter event date:");
+        String eventDate = scanner.nextLine();
+      
+  
+        ArrayList<String> speakers = new ArrayList<>();
+        System.out.println("Enter number of speakers:");
+        int numSpeakers = scanner.nextInt();
+        scanner.nextLine(); // Consume newline character
+        for (int i = 0; i < numSpeakers; i++) {
+            System.out.println("Enter speaker " + (i + 1) + " name:");
+            speakers.add(scanner.nextLine());
+        }
+
+        organizer.createEvent(eventName, eventDate, speakers);
+        System.out.println("Event created successfully!");
+    }
+}
