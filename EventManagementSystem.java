@@ -94,18 +94,16 @@ public class EventManagementSystem {
     }
 
     private static void preLoadData(Organizer organizer) {
-    	//using an array list here because we can have duplicate values for speakers.
-        ArrayList<String> speakers1 = new ArrayList<>();
-        speakers1.add("Speaker 1");
-        speakers1.add("Speaker 2");
-
-        ArrayList<String> speakers2 = new ArrayList<>();
-        speakers2.add("Speaker A");
-        speakers2.add("Speaker B");
-
-        organizer.createEvent("Conference 1", "2024-05-01", speakers1);
-        organizer.createEvent("Conference 2", "2024-05-15", speakers2);
-
+        String[] speakers1 = new String[2];
+        for(int i=0; i > 1; i++){
+        speakers1[i]= ("Speaker" + i);
+        }
         
+        String[] speakers2 = new String[2];
+        for(int j=0; j > 1; j++) {
+        	speakers2[j] = ("Speaker" + j);
+        }
+        
+        organizer.createEvent("Introduction to Java", "01/09/2024", speakers1);
+        organizer.createEvent("Java Final Project", "04/25/2024", speakers2 );
     }
-}
