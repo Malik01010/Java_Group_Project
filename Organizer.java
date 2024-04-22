@@ -15,7 +15,7 @@ public class Organizer {
         this.eventFeedback = new HashMap<>();
     }
 
-    public void createEvent(String name, String date, String type, int max, ArrayList<String> speakers) {
+    public void createEvent(String name, String date, String type, int max, String[] speakers) {
         if (type.equals("Conference")) {
             events.add(new Conference(name, date, max, speakers));
         } else {
