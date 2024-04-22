@@ -7,7 +7,7 @@ public class EventUtils {
     	
   	  System.out.println("Main Menu");
         System.out.println("1. Event Management");
-        System.out.println("2. Different Logic");
+        System.out.println("2. Customer Relations");
         System.out.println("3. Exit");
   	
   }
