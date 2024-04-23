@@ -16,7 +16,7 @@ public class Organizer {
         this.allCustomers = new ArrayList<>();
     }
 
-    public void createEvent(String name, String date, ArrayList<String> speakers) {
+    public void createEvent(String name, String date, String[] speakers) {
         events.add(new Event(name, date));
         
     }
