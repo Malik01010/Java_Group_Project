@@ -67,7 +67,7 @@ public class EventManagementSystem {
         System.out.println("Enter the event name you want to RSVP to:");
         String eventName = scanner.nextLine();
 
-        Customer customer = new Customer(attendeeName, "", "", ""); // You may need additional information here
+        Customer customer = new Customer(attendeeName, "", "", ""); 
 
         organizer.RSVP(customer, eventName);
 
