@@ -15,11 +15,11 @@ public class CRMSystem {
         System.out.println("3. Customer RSVP");
         System.out.println("Enter your choice:");
         int choice = scanner.nextInt();
-        scanner.nextLine(); // Consume newline character
+        scanner.nextLine(); 
 
         switch (choice) {
             case 1:
-                // Get all customers
+              
                 ArrayList<Customer> customers = organizer.getAllCustomers();
                 System.out.println("Customers to contact:");
                 for (int i = 0; i < customers.size(); i++) {
