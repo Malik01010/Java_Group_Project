@@ -32,31 +32,7 @@ public class CRMSystem {
                         System.out.println("   RSVPed to: " + attendedEvents);
                     }
                 }
-
-                System.out.println("Choose a customer to contact. Enter the number:");
-                int customerIndex = scanner.nextInt() - 1;
-                scanner.nextLine(); // Consume newline character
-
-                Customer customer = customers.get(customerIndex);
-                System.out.println("You are now contacting " + customer.getAttendeeName() + ". Phone number: " + customer.getPhoneNumber());
-
-                System.out.println("Which event are you contacting them about? Enter the event name:");
-                String eventName = scanner.nextLine();
-
-                System.out.println("Did the customer confirm their attendance? 1. Yes, 2. No");
-                int confirmation = scanner.nextInt();
-                scanner.nextLine(); // Consume newline character
-
-                if (confirmation == 1) {
-                    organizer.RSVP(customer, eventName);
-                    System.out.println("Great! The customer confirmed their attendance.");
-                } else {
-                    System.out.println("The customer did not confirm their attendance. They should be contacted again soon.");
-                }
-                
-                // Update the last contacted date to "2024-04-25" (as a string)
-                String lastContacted = "2024-04-25";
-                customer.setLastContacted(lastContacted);
+      
                 break;
        
             case 2:
