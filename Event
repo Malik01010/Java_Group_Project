@@ -30,7 +30,7 @@ public class Event {
     public static void createEvent(Organizer organizer, Scanner scanner) {
         System.out.println("Enter event name:");
         String eventName = scanner.nextLine();
-        System.out.println("Enter event date:");
+        System.out.println("Enter event date: (yyyy-mm-dd)");
         String eventDate = scanner.nextLine();
       
   
